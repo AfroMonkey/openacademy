@@ -5,5 +5,6 @@
     'depends': [
     ],  # TODO [IMP]
     'data': [
-    ],  # TODO [IMP]
+        'views/course.xml',
+    ],
 }
