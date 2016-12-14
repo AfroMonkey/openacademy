@@ -6,5 +6,6 @@
     ],  # TODO [IMP]
     'data': [
         'views/course.xml',
+        'views/session.xml',
     ],
 }
