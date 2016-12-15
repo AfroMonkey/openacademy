@@ -44,9 +44,6 @@ class Session(models.Model):
             if not (r.start_date and r.duration):
                 r.end_date = r.start_date
                 continue
-
-            # Add duration to start_date, but: Monday + 5 days = Saturday, so
-            # subtract one second to get on Friday instead
             start = fields.Datetime.from_string(r.start_date)
             duration = timedelta(days=r.duration, seconds=-1)
             r.end_date = start + duration
@@ -55,9 +52,6 @@ class Session(models.Model):
         for r in self:
             if not (r.start_date and r.end_date):
                 continue
-
-            # Compute the difference between dates, but: Friday - Monday = 4 days,
-            # so add one day to get 5 days instead
             start_date = fields.Datetime.from_string(r.start_date)
             end_date = fields.Datetime.from_string(r.end_date)
             r.duration = (end_date - start_date).days + 1
