@@ -5,6 +5,8 @@
     'depends': [
     ],
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/course.xml',
         'views/partner.xml',
         'views/session.xml',
