@@ -1,4 +1,3 @@
-
 from datetime import timedelta
 from openerp import api, exceptions, fields, models
 
@@ -21,7 +20,8 @@ class Session(models.Model):
         inverse='_set_end_date')
     hours = fields.Float(string="Duration in hours",
                          compute='_get_hours', inverse='_set_hours')
-    attendees_count = fields.Integer(compute='_get_attendees_count', store=True)
+    attendees_count = fields.Integer(compute='_get_attendees_count',
+                                     store=True)
     color = fields.Integer()
 
     @api.depends('attendee_ids')
@@ -55,8 +55,6 @@ class Session(models.Model):
             start_date = fields.Datetime.from_string(r.start_date)
             end_date = fields.Datetime.from_string(r.end_date)
             r.duration = (end_date - start_date).days + 1
-
-
 
     @api.depends('seats', 'attendee_ids')
     def _taken_seats(self):
