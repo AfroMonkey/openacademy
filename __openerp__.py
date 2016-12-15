@@ -8,5 +8,6 @@
         'views/course.xml',
         'views/partner.xml',
         'views/session.xml',
+        'views/session_workflow.xml',
     ],
 }
