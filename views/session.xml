@@ -41,7 +41,7 @@
                                 <field name="active"/>
                             </group>
                             <group string="Schedule">
-                                <field name="start_date"/>
+                                <field name="start_date" readonly="1"/>
                                 <field name="duration"/>
                                 <field name="seats"/>
                                 <field name="taken_seats" widget="progressbar"/>
@@ -51,6 +51,18 @@
                         <field name="attendee_ids"/>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="session_form_perms">
+            <field name="name">session.form.perms</field>
+            <field name="model">openacademy.session</field>
+            <field name="inherit_id" ref="session_form_view"/>
+            <field name="groups_id" eval="[(6,0, [ref('openacademy.group_manager')])]"/>
+            <field name="arch" type="xml">
+                <field name="start_date" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </field>
             </field>
         </record>
 
