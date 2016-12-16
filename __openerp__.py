@@ -11,5 +11,6 @@
         'views/partner.xml',
         'views/session.xml',
         'views/session_workflow.xml',
+        'views/wizard.xml',
     ],
 }
